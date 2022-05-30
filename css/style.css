@@ -1,0 +1,149 @@
+:root{
+	--sarimsiBeyaz: #fffff3;
+	--siyahimsi: #354538;
+}
+
+body{
+	font-family: Arial, Helvetica;
+	background-color: var(--sarimsiBeyaz);
+}
+
+#main{
+	margin: 0 auto;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	z-index: -1;
+}
+
+@media screen and (min-width: 600px){
+	/* masaüstü */
+	#main{
+		width: 90vh;
+		margin-left: calc(45vh * -1);
+		margin-top: calc(45vh * -1);
+	}
+	
+	#oyun-alani{
+		width: 90vh;
+		height: 90vh;
+	}
+}
+
+#klavye{
+	display: none;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	left:0;
+}
+
+.klavye-satir{
+	display: flex;
+	width: 100%;
+	margin-bottom: 5px;
+	justify-content: space-around;
+}
+
+.klavye-satir>button{
+    border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	flex: 1;
+	background-color: #dddddd;
+    border: none;
+	text-transform: uppercase;
+	margin-left: 5px;
+	height: 50px;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.klavye-satir>button:last-of-type {
+    margin-right: 5px;
+}
+
+.klavye-satir>button:active{
+	background-color: #989898;
+}
+
+@media screen and (max-width: 600px){
+	/* mobil */
+	#main{
+		width: 90vw;
+		margin-left: calc(45vw * -1);
+		margin-top: calc(45vw * -1);
+		top: 35%;
+	}
+	
+	#oyun-alani{
+		width: 90vw;
+		height: 90vw;
+	}
+
+	#klavye{
+		display: inline-block;
+	}
+}
+
+#baslik, .mesaj-kutusu{
+	color: var(--sarimsiBeyaz);
+	font-weight: bold;
+	font-size: 32px;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: var(--siyahimsi);
+	border-radius:3px;
+	pointer-events: none;
+}
+
+#oyun-alani{
+	margin-top: 12px;
+	display: grid;
+	grid-template-rows: repeat(6,auto);
+	grid-template-columns: repeat(5, auto);
+	grid-row-gap: 5px;
+	justify-content: space-around;
+}
+
+.harf-kutu{
+	border:2px solid #babdba;
+	border-radius: 3px;
+	display: inline-flex;
+	justify-content: center;
+	align-items:center;
+	pointer-events: none;
+	font-size:3.5em;
+	text-transform:uppercase;
+	transition:border .3s ease;
+}
+
+.dolu{
+	border:2px solid #354538;
+	transition: background-color .6s ease-out, border .3s ease;
+}
+
+/* #d3d3d3 gri */
+/* #f3f1a6 sarı */
+/* #a6e395 yeşil */
+
+/* ^###### mesaj kutusu ###### */
+
+.mesaj-kutusu{
+	position: absolute;
+	display:block;
+	padding: 10px;
+	max-height: 0px;
+	opacity:.8;
+	visibility: hidden;
+	transition: visibility 1.5s, max-height 1.5s ease-in-out;
+	color: #cbd1a2;
+}
+
+.mesaj-kutusu-acik{
+	max-height: 500px;
+	visibility: visible;
+}
